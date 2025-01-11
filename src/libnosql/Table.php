@@ -8,7 +8,7 @@ class Table
      * Table Name.
      * @var string
      */
-    private $table;
+    private string $table;
 
     /**
      * Table constructor.
@@ -53,7 +53,7 @@ class Table
     {
         $val = $this->getValue($key);
         if($val === null) return null;
-        return (string)$val;
+        return $val;
     }
 
     /**
@@ -72,7 +72,7 @@ class Table
      * @param string $key
      * @return bool|string
      */
-    public function isExists(string $key)
+    public function isExists(string $key): string|bool
     {
         $dir = $this->getPath() . $key[0] . DIRECTORY_SEPARATOR;
         if (is_dir($dir)) {
@@ -160,7 +160,7 @@ class Table
     public function setObject(string $key, object $object): void
     {
         $serializedObj = serialize($object);
-        if ($serializedObj === false) {
+        if (!$serializedObj) {
             return;
         }
         $this->setString($key, $serializedObj);
@@ -180,15 +180,15 @@ class Table
      * @param mixed $value
      * @param mixed $index
      */
-    public function pushArray(string $key, $value, $index = null)
+    public function pushArray(string $key, mixed $value, mixed $index = null): void
     {
-        $ar = $this->getArray($key);
+        $arr = $this->getArray($key);
         if ($index === null) {
-            $ar[] = $value;
+            $arr[] = $value;
         } else {
-            $ar[$index] = $value;
+            $arr[$index] = $value;
         }
-        $this->setArray($key, $value);
+        $this->setArray($key, $arr);
     }
 
     /**
@@ -216,7 +216,7 @@ class Table
      * @param mixed $value
      * @return bool
      */
-    public function inArray(string $key, $value): bool
+    public function inArray(string $key, mixed $value): bool
     {
         if (in_array($value, $this->getArray($key))) {
             return true;
@@ -238,9 +238,9 @@ class Table
      * @param mixed $index
      * @return bool
      */
-    public function existsArray(string $key, $index): bool
+    public function existsArray(string $key, mixed $index): bool
     {
-        return isset($this->getArray($key)[$index]) ? true : false;
+        return isset($this->getArray($key)[$index]);
     }
 
     /**
@@ -257,12 +257,12 @@ class Table
      * @param string $key
      * @param mixed $index
      */
-    public function unsetArray(string $key, $index)
+    public function unsetArray(string $key, mixed $index): void
     {
-        $ar = $this->getArray($key);
-        if (isset($ar[$index])) {
-            unset($ar[$index]);
-            $this->setArray($key, $ar);
+        $arr = $this->getArray($key);
+        if (isset($arr[$index])) {
+            unset($arr[$index]);
+            $this->setArray($key, $arr);
         }
     }
 

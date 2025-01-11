@@ -13,20 +13,20 @@ class LibNoSQL
      */
     const FILE_EXTENSION = ".ns";
 
-    private static $path;
+    private static string $path;
 
     /**
      * Set database
      * @param string $dbName
      */
-    public static function setDatabaseDirectory(string $dbName) {
+    public static function setDatabaseDirectory(string $dbName): void {
         self::$path = $dbName.DIRECTORY_SEPARATOR;
     }
 
     /**
-     * Optional, create database directory if doesn't exists
+     * Optional, create database directory if it doesn't exist
      */
-    public static function init() {
+    public static function init(): void {
         @mkdir(self::getPath());
         @mkdir(self::getPath().DIRECTORY_SEPARATOR."tables");
     }
@@ -35,11 +35,11 @@ class LibNoSQL
      * @param string $table
      * @return Table
      */
-    public static function getTable(string $table) {
+    public static function getTable(string $table): Table {
         return new Table($table);
     }
 
-    public static function getPath() {
+    public static function getPath(): string {
         return self::$path;
     }
 
