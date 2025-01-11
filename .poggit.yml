@@ -1,0 +1,10 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Pedhot-Dev/libnosql
+build-by-default: true
+branches:
+- master
+projects:
+  libnosql:
+    path: ""
+    model: virion
+    type: library
+...
