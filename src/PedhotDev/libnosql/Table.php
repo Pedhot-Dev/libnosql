@@ -20,7 +20,7 @@
 
 declare(strict_types=1);
 
-namespace libnosql;
+namespace PedhotDev\libnosql;
 
 use function array_values;
 use function count;

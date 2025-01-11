@@ -20,7 +20,7 @@
     "extra": {
         "virion": {
             "spec": "3.1",
-            "namespace-root": "libnosql"
+            "namespace-root": "PedhotDev\\libnosql"
         }
     }
 }

@@ -6,10 +6,11 @@ Non SQL database due to "realtime" database.
 Copy src folder to your src plugins folder or use DEVirion
 
 ### Example
+
 ```php
 <?php
 // TODO: You must load libnosql src folder. Will auto loaded if you're using for PocketMine plugins 
-use libnosql\LibNoSQL;
+use PedhotDev\libnosql\LibNoSQL;
 
 LibNoSQL::setDatabaseDirectory("db2");
 LibNoSQL::init();

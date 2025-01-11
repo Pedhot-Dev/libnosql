@@ -1,6 +1,8 @@
 name: libnosql
 version: 1.0.0
-antigen: libnosql
+antigen: PedhotDev\libnosql
 api: [5.0.0]
 php: [8.2]
-author: AkmalFairuz
+authors:
+  - AkmalFairuz
+  - PedhotDev
